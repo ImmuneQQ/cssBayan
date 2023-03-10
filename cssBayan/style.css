@@ -49,9 +49,14 @@ hr {
   padding: 1em;
   width: 100%;
   box-sizing: border-box;
+  transition: .5s;
 }
 
-.accordion__item:active .accordion__row {
+.accordion input:checked + .accordion__item .accordion__row {
+  background-color: #F2CD07;
+}
+
+.accordion input + .accordion__item:active .accordion__row {
   background-color: #E3EDFE;
 }
 
@@ -82,6 +87,7 @@ hr {
 @media (min-width: 768px) {
   h1 {
     font-size: 2.5em;
+    margin-bottom: 0.3em;
   }
 
   .content {
@@ -91,5 +97,46 @@ hr {
 
   .accordion__image img {
     max-height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    overflow-y: scroll;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  .content {
+    font-size: 1.5em;
+    max-width: 50%;
+  }
+
+  .accordion__item {
+    cursor: pointer;
+  }
+
+  .accordion__row {
+    padding: .5em;
+  }
+
+  .accordion:not(:hover) .accordion__row {
+    background-color: #E3EDFE;
+  }
+
+  .accordion:not(:hover) .accordion__icon {
+    opacity: 0;
+  }
+
+  .accordion__item:hover .accordion__icon {
+    transform: rotate(45deg);
+  }
+
+  .accordion__item:hover .accordion__image {
+    padding: 1em;
+    width: 100%;
+    opacity: 1;
   }
 }
