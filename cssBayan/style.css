@@ -1,0 +1,163 @@
+body {
+  margin: 0;
+  background-color: #F5F8FF;
+  width: 100%;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+img {
+  vertical-align: bottom;
+  max-width: 100%;
+}
+
+hr {
+  border-color: #000;
+  border-bottom: none;
+  margin: 0;
+}
+
+.content {
+  max-width: 90%;
+  margin: 0 auto;
+  font: 400 1em/1.4 "Open Sans", sans-serif;
+  padding: 2em 0;
+}
+
+.accordion input {
+  display: none;
+}
+
+.accordion__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: .5s;
+}
+
+.accordion__item:active {
+  opacity: .5;
+}
+
+.accordion__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #F2CD07;
+  padding: 1em;
+  width: 100%;
+  box-sizing: border-box;
+  transition: .5s;
+}
+
+.accordion input:checked + .accordion__item .accordion__row {
+  background-color: #F2CD07;
+}
+
+.accordion input + .accordion__item:active .accordion__row {
+  background-color: #E3EDFE;
+}
+
+.accordion__icon {
+  transition: .5s;
+}
+
+.accordion__icon img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.accordion input:checked + .accordion__item .accordion__icon {
+  transform: rotate(45deg);
+}
+
+.accordion__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  transition: .5s;
+  opacity: 0;
+}
+
+.accordion__image img {
+  max-height: 0;
+  transition: .5s;
+}
+
+.accordion input:checked + .accordion__item .accordion__image {
+  padding: 1em;
+  opacity: 1;
+}
+
+.accordion input:checked + .accordion__item .accordion__image img {
+  max-height: 25rem;
+}
+
+@media (min-width: 320px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .content {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.3em;
+  }
+
+  .content {
+    font-size: 1.3em;
+    max-width: 70%;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    overflow-y: scroll;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  .content {
+    font-size: 1.5em;
+    max-width: 50%;
+  }
+
+  .accordion__item {
+    cursor: pointer;
+  }
+
+  .accordion__row {
+    padding: .5em;
+  }
+
+  .accordion:not(:hover) .accordion__row {
+    background-color: #E3EDFE;
+  }
+
+  .accordion:not(:hover) .accordion__icon {
+    opacity: 0;
+  }
+
+  .accordion__item:hover .accordion__icon {
+    transform: rotate(45deg);
+  }
+
+  .accordion__item:hover .accordion__image {
+    padding: 1em;
+    opacity: 1;
+  }
+
+  .accordion__item:hover .accordion__image img {
+    max-height: 25rem;
+  }
+}
