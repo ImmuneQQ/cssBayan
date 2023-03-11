@@ -64,6 +64,11 @@ hr {
   transition: .5s;
 }
 
+.accordion__icon img {
+  width: 2rem;
+  height: 2rem;
+}
+
 .accordion input:checked + .accordion__item .accordion__icon {
   transform: rotate(45deg);
 }
@@ -73,15 +78,32 @@ hr {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  width: 0;
   transition: .5s;
   opacity: 0;
 }
 
+.accordion__image img {
+  max-height: 0;
+  transition: .5s;
+}
+
 .accordion input:checked + .accordion__item .accordion__image {
   padding: 1em;
-  width: 100%;
   opacity: 1;
+}
+
+.accordion input:checked + .accordion__item .accordion__image img {
+  max-height: 25rem;
+}
+
+@media (min-width: 320px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .content {
+    font-size: 1em;
+  }
 }
 
 @media (min-width: 768px) {
@@ -93,10 +115,6 @@ hr {
   .content {
     font-size: 1.3em;
     max-width: 70%;
-  }
-
-  .accordion__image img {
-    max-height: 400px;
   }
 }
 
@@ -136,7 +154,10 @@ hr {
 
   .accordion__item:hover .accordion__image {
     padding: 1em;
-    width: 100%;
     opacity: 1;
+  }
+
+  .accordion__item:hover .accordion__image img {
+    max-height: 25rem;
   }
 }
